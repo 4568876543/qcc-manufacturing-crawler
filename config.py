@@ -72,8 +72,19 @@ PAGE_SIZE = 40  # 每页显示的企业数量
 # 数据存储
 OUTPUT_FILE = "data/重庆制造业企业数量统计.xlsx"
 TEMP_DATA_FILE = "data/temp_data.json"  # 临时数据文件，用于断点续爬
+TASK_FILE = "data/task_state.json"  # 任务状态文件
+INDEX_CACHE_FILE = "data/index_cache.json"  # 索引缓存文件
+VALIDATION_DIR = "logs/validation"  # 验证报告目录
+
+# 自动保存配置
+AUTO_SAVE_INTERVAL = 5  # 每完成N个行业自动保存一次
+SAVE_ON_EACH_INDUSTRY = True  # 每完成一个行业立即保存
 
 # 反爬策略
 RANDOM_DELAY_MIN = 1  # 随机延迟最小值，单位秒
 RANDOM_DELAY_MAX = 3  # 随机延迟最大值，单位秒
 MAX_RETRIES = 3  # 最大重试次数
+
+# 条件验证配置
+VERIFY_CONDITIONS_ON_RESUME = True  # 续爬时是否验证筛选条件
+CONDITION_TOLERANCE = 1  # 允许的条件差异数量（除行业大类外）
